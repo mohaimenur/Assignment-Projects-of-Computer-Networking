@@ -1,0 +1,85 @@
+router1
+---------
+enable
+config t
+
+int Fa0/0
+ip address 15.15.15.16 255.255.192.0
+no shut
+
+int Se2/0
+ip address 10.10.10.11 255.255.255.252
+no shut
+
+
+router2
+------------
+enable
+config t
+
+int Fa0/0
+ip address 197.168.15.201 255.255.255.192
+no shut
+
+int Se2/0
+ip address 10.10.10.12 255.255.255.252
+no shut
+
+int Se3/0
+ip address 20.20.20.21 255.255.255.252
+no shut
+
+
+router3
+------------
+enable
+config t
+
+int Fa0/0
+ip address 160.16.6.116 255.255.255.248
+no shut
+
+int Se2/0
+ip address 20.20.20.22 255.255.255.252
+no shut
+
+
+
+router1
+------------
+
+router rip
+network 15.15.15.15
+network 10.10.10.10
+network 20.20.20.20
+exit
+
+
+router2
+----------------
+
+router rip
+network 197.168.15.200
+network 10.10.10.10
+network 20.20.20.20
+exit
+
+router3
+-------------
+
+router rip
+network 160.16.6.115
+network 20.20.20.20
+network 10.10.10.10
+exit
+
+
+
+
+
+
+
+
+
+
+
